@@ -1,4 +1,4 @@
-resource "aws_lambda_function" "ingest_cities" {
+resource "aws_lambda_function" "cities" {
 
     function_name                  = "lambda-fcn-dev-api-s3-ingesta-cities"
     role                           = "arn:aws:iam::733918434492:role/role-dev-lambda-function-ingest"
@@ -52,6 +52,6 @@ resource "aws_lambda_function" "ingest_cities" {
 # Alias dev (recurso separado)
 resource "aws_lambda_alias" "dev" {
   name             = "dev"
-  function_name    = aws_lambda_function.ingest_cities.function_name
-  function_version = aws_lambda_function.ingest_cities.version
+  function_name    = aws_lambda_function.cities.function_name
+  function_version = aws_lambda_function.cities.version
 }
