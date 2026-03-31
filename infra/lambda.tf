@@ -13,8 +13,8 @@ resource "aws_lambda_function" "ingest_cities" {
     runtime                        = "python3.13"
     timeout                        = 60   
 
-    filename                       = "lambda-fcn-dev-api-s3-ingesta-cities.zip" 
-    source_code_hash               = filebase64sha256("lambda-fcn-dev-api-s3-ingesta-cities.zip")
+    filename                       = "data.archive_file.lambda_zip.output_path" 
+    source_code_hash               = data.archive_file.lambda_zip.output_base64sha256
     publish                        = true
 
     environment {

@@ -85,6 +85,7 @@ def lambda_handler(event, context):
         s3 = boto3.client('s3')
         s3.put_object(Bucket=bucket_fullname, Key=key, Body=buffer.getvalue())
         logger.info("Archivo subido exitosamente a S3")
+        logger.info("Versionado 1 realizado con terraform")
 
         # Retornar confirmación
         return {
