@@ -26,7 +26,6 @@ resource "aws_lambda_function" "ingest_cities" {
             "subnet-03d5807320b31bbb8",
             "subnet-0d6157b3094f292d4",
         ]
-        vpc_id                      = "vpc-0f28d7cc60e173b34"
     }
 
     layers = [
