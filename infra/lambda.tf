@@ -1,9 +1,3 @@
-data "archive_file" "lambda_zip" {
-  type        = "zip"
-  source_dir  = "../src"
-  output_path = "../build/lambda.zip"
-}
-
 resource "aws_lambda_function" "ingest_cities" {
 
     function_name                  = "lambda-fcn-dev-api-s3-ingesta-cities"
@@ -13,7 +7,7 @@ resource "aws_lambda_function" "ingest_cities" {
     runtime                        = "python3.13"
     timeout                        = 60   
 
-    filename                       = "data.archive_file.lambda_zip.output_path" 
+    filename                       = data.archive_file.lambda_zip.output_path
     source_code_hash               = data.archive_file.lambda_zip.output_base64sha256
     publish                        = true
 
